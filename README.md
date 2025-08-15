@@ -43,6 +43,7 @@ Test-time scaling (TTS) has emerged as a new frontier for scaling the performanc
 ## 🔍 Overview of Works
 
 |--------|------|-------|--------|--------|--------|--------|--------|-------|-------|
+
 |        |      | SFT   | RL     | STI | SEA | VER | AGG |        |        |
 |<i><b>Scaling llm test-time compute optimally can be more effective than scaling model parameters.</b></i>, <a href="https://arxiv.org/abs/2408.03314" target="_blank"><img src="https://img.shields.io/badge/arXiv-2408.03314-red" alt="arXiv Badge"></a></li>|Parallel,<br>Sequential|✗|✗|✗|Beam,<br>LookAhead|Verifier|(Weighted) Best-of-N,<br>Stepwise Aggregation|Math|Pass@1,<br>FLOPsMatched Evaluation|
 |<i><b>Multi-agent verification: Scaling test-time compute with goal verifiers</b></i><br>., <a href="https://arxiv.org/abs/2502.20379" target="_blank"><img src="https://img.shields.io/badge/arXiv-2502.20379-red" alt="arXiv Badge"></a></li>| Parallel | ✗ | ✗ | Self-Repetition | ✗ | Multiple-Agent<br>Verifiers | Best-of-N | Math,<br>Code,<br>General | BoN-MAV (Cons@k),<br>Pass@1 |
