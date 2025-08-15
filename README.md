@@ -15,7 +15,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Contributors-3-red?style=for-the-badge" />
-  <img src="https://img.shields.io/github/stars/testtimescaling/Verifierstesttimescaling.github.io?style=for-the-badge&label=Stars&color=blue"/>
+  <img src="https://img.shields.io/github/stars/Verifierstesttimescaling.github.io/Verifierstesttimescaling.github.io?style=for-the-badge&label=Stars&color=blue"/>
   <img src="https://img.shields.io/endpoint?url=https://Verifierstesttimescaling.github.io/arxiv_citations.json&style=for-the-badge&color=green"/>
 </p>
 
