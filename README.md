@@ -41,7 +41,7 @@ Test-time scaling (TTS) has emerged as a new frontier for scaling the performanc
 
 
 ## 🔍 Overview of Works
-| <div style="width:300px">Method(PapersTitles)</div> | What | How → |        |        |        |        |        | Where | How Well |
+| <div style="width:300px">Method(PapersTitles)</div> 
 |--------|------|-------|--------|--------|--------|--------|--------|-------|-------|
 |        |      | SFT   | RL     | STI | SEA | VER | AGG |        |        |
 |<i><b>Scaling llm test-time compute optimally can be more effective than scaling model parameters.</b></i>, <a href="https://arxiv.org/abs/2408.03314" target="_blank"><img src="https://img.shields.io/badge/arXiv-2408.03314-red" alt="arXiv Badge"></a></li>|Parallel,<br>Sequential|✗|✗|✗|Beam,<br>LookAhead|Verifier|(Weighted) Best-of-N,<br>Stepwise Aggregation|Math|Pass@1,<br>FLOPsMatched Evaluation|
@@ -79,8 +79,8 @@ Test-time scaling (TTS) has emerged as a new frontier for scaling the performanc
 
 </footer>
 
-
+<!-- 
 ## Generative Verifiers
 
 1. [Putting the Value Back in RL: Better Test-Time Scaling by
-Unifying LLM Reasoners With Verifiers] (https://arxiv.org/pdf/2505.04842 )
+Unifying LLM Reasoners With Verifiers] (https://arxiv.org/pdf/2505.04842 ) -->
