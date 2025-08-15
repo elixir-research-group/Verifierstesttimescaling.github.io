@@ -20,7 +20,7 @@
 </p>
 
 
-Our repository, **Survey of Verifier Design Mechanisms for Test Time Scaling of LLMss**, gathers available papers on different approaches for design and training of verification mechanisms for test-time scaling. To the best of our knowledge no comprehensive survey  Unlike other repositories that categorize papers, we decompose each paper's contributions based on the taxonomy provided by [""]() facilitating easier understand and comparison for readers.
+Our repository, **Survey of Verifier Design Mechanisms for Test Time Scaling of LLMs**, gathers available papers on different approaches for design and training of verification mechanisms for test-time scaling. To the best of our knowledge no comprehensive survey  Unlike other repositories that categorize papers, we decompose each paper's contributions based on the taxonomy provided by [""]() facilitating easier understand and comparison for readers.
 
 
 <div align="center">
@@ -29,51 +29,18 @@ Our repository, **Survey of Verifier Design Mechanisms for Test Time Scaling of 
 </div>
 
 ## 📢 News and Updates
-- **[13/Apr/2025]** 📌 The Second Version is released:
-
-    1. We correct some typos;
-    2. We include "Evaluation" and "Agentic" Tasks, which were enhanced by TTS;
-    3. We revise the figures and tables, like the color of table 1.
-- **[9/Apr/2025]** 📌 Our repository is created.
-- **[31/Mar/2025]** 📌 Our initial survey is on [**Arxiv**](https://arxiv.org/abs/2503.24235)!
+- **[15/Aug/2025]** 📌 Our repository is created.
 
 ## 📘 Introduction
-As enthusiasm for scaling computation (data and parameters) in the pertaining era gradually diminished, test-time scaling (TTS)—also referred to as “test-time computing”—has emerged as a prominent research focus. Recent studies demonstrate that TTS can further elicit the problem-solving capabilities of large language models (LLMs), enabling significant breakthroughs not only in reasoning-intensive tasks, such as mathematics and coding, but also in general tasks like open-ended Q&A. However, despite the explosion of recent efforts in this area, there remains an urgent need for a comprehensive survey offering systemic understanding. To fill this gap, we propose a unified, hierarchical framework structured along four orthogonal dimensions of TTS research: **what to scale**, **how to scale**, **where to scale**, and **how well to scale**. Building upon this taxonomy, we conduct a holistic review of methods, application scenarios, and assessment aspects, and present an organized decomposition that highlights the unique contributions of individual methods within the broader TTS landscape.
+Test-time scaling (TTS) has emerged as a new frontier for scaling the performance of Large Language Models. In test-time scaling, by using more computational resources during inference, LLMs can improve their reasoning process and task performance. Several approaches have emerged for TTS such as distilling reasoning traces from another model or exploring the vast decoding search space by employing a verifier. Employing external verifiers or self-verification is crucial for test-time scaling, as they help guide the search process over large reasoning space. Verification for test-time scaling entails  mechanisms or scoring functions used to evaluate the quality or plausibility of different reasoning paths or solutions from the language model during inference, enabling efficient search or selection among them without access to ground-truth labels.  This paradigm commonly termed has emerged as a superior approach owing to parameter free scaling at inference time and high performance gains. The verifiers could be prompt-based, fine-tuned as a discriminative or generative model to verify process paths, outcomes or both. Despite their widespread adoption, there is no detailed collection, clear categorization and discussion of diverse verification approaches and their training mechanisms. In this survey, we cover the diverse approaches in the literature and present a unified view of verifier training, types and their utility in test-time scaling.
+
 <div align="center">
-  <img src="figs/TTS-intro.png" width="900"/>
-  <p><b>Figure 2:</b> omparison of Scaling Paradigms in Pre-training and Test-time Phases.</i>.</p>
+  <img src="figs/Verifier-taxonomy.png" width="900"/>
+  <p><b>Figure 2:</b> Taxonomy for Verification Design and Training mechanisms.</i>.</p>
 </div>
 
-## 🧬 Taxonomy
 
-### 1. **What to Scale**
-``What to scale'' refers to the specific form of TTS that is expanded or adjusted to enhance an LLM’s performance during inference.
-- **Parallel Scaling** improves test-time performance by generating multiple outputs in parallel and then aggregating them into a final answer.
-- **Sequential Scaling** involves explicitly directing later computations based on intermediate steps.
-- **Hybrid Scaling** exploits the complementary benefits of parallel and sequential scaling.
-- **Internal Scaling** elicits a model to autonomously determine how much computation to allocate for reasoning during testing within the model’s internal parameters, instead of external human-guided strategies.
-
-### 2. **How to Scale**
-- **Tuning**
-  - Supervised Fine-Tuning (_SFT_): by training on synthetic or distilled long CoT examples, SFT allows a model to imitate extended reasoning patterns.
-  - Reinforcement Learning (_RL_): RL can guide a model’s policy to generate longer or more accurate solutions.
-- **Inference**
-  - Stimulation (_STI_): It basically stimulates the LLM to generate more and longer samples instead of generating individual samples directly.
-  - Verification (_VER_): The verification process plays an important role in the TTS, and it can be adapted to: i) directly selects the output sample among various ones, under the Parallel Scaling paradigm; ii) guides the stimulation process and determines when to stop, under the Sequential Scaling paradigm; iii) serves as the criteria in the search process; iv) determines what sample to aggregate and how to aggregate them, e.g., weights.
-  - Search (_SEA_): Search is a time-tested technique for retrieving relevant information from large databases, and it can also systematically explore the potential outputs of LLMs to improve complex reasoning tasks.
-  - Aggregation (_AGG_): Aggregation techniques consolidate multiple solutions into a final decision to enhance the reliability and robustness of model predictions at test time.
-
-### 3. **Where to Scale**
-- **Reasoning**: Math, Code, Science, Game & Strategy, Medical and so on.
-- **General-Purpose**: Basics, Agents,  Knowledge, Open-Ended, Multi-Modal and so on.
-
-### 4. **How Well to Scale**
-- **Performance**: This dimension measures the correctness and robustness of outputs.
-- **Efficiency**: it captures the cost-benefit tradeoffs of TTS methods.
-- **Controllability**: This dimension assesses whether TTS methods adhere to resource or output constraints, such as compute budgets or output lengths.
-- **Scalability**: Scalability quantifies how well models improve with more test-time compute (e.g., tokens or steps).
-
-## 🔍 Paper Tables
+## 🔍 Overview of Works
 | <div style="width:300px">Method(PapersTitles)</div> | What | How → |        |        |        |        |        | Where | How Well |
 |--------|------|-------|--------|--------|--------|--------|--------|-------|-------|
 |        |      | SFT   | RL     | STI | SEA | VER | AGG |        |        |
