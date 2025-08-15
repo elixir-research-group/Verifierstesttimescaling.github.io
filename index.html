@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="figs/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>What, How, Where, and How Well? A Survey on Test-Time Scaling in Large Language Models</title>
+  
+  <!-- ======== 2. 字体/样式/依赖文件路径 ======== -->
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+  <!-- ======== <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> ======== -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@latest/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href=".css/bulma-slider.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href=".css/index.css">
+
+</head>
+<body>
+
+
+
+
+                  <section class="hero">
+                    <div class="hero-body">
+                      <div class="container is-max-desktop">
+                        <div class="columns is-centered">
+                          <div class="column has-text-centered">
+                            <h1 class="title is-1 publication-title"> What, How, Where, and How Well? A Survey on Test-Time Scaling in Large Language Models</h1>
+                            <div class="is-size-5 publication-authors">
+                              <!-- Paper authors -->
+                              <span class="author-block">
+                                  <a href="#" target="_blank">Qiyuan Zhang</a><sup>+</sup>,</span>
+                              <span class="author-block">
+                                  <a href="#" target="_blank">Fuyuan Lyu</a><sup>*</sup>,</span>
+                              <span class="author-block">
+                                  <a href="#" target="_blank">Zexu Sun</a><sup>‡</sup>,</span>
+                              <span class="author-block">
+                                  <a href="#" target="_blank">Lei Wang</a><sup>¶</sup>,</span>
+                              <span class="author-block">
+                                  <a href="#" target="_blank">Weixu Zhang</a><sup>*</sup>,</span>  <!-- 补充链接 -->
+                              <span class="author-block">
+			         <a href="#" target="_blank">Wenyue Hua</a><sup>☆</sup>,</span>  <!-- 补充链接 -->
+                              <span class="author-block">
+				<a href="#" target="_blank">Haolun Wu</a><sup>★</sup>,</span>  <!-- 补充链接 -->
+                              <span class="author-block">
+                                  <a href="#" target="_blank">Zhihan Guo</a><sup>§</sup>,</span>    <!-- 补充链接 -->
+                              <span class="author-block">
+                                  <a href="#" target="_blank">Yufei Wang</a><sup>‖</sup>,</span> <!-- 替换 # -->
+                              <span class="author-block">
+                                  <a href="#" target="_blank">Niklas Muennighoff</a><sup>★</sup>,</span>   <!-- 替换 & -->
+                              <span class="author-block">
+                                  <a href="#" target="_blank">Irwin King</a><sup>§</sup></span>
+			      <span class="author-block">
+                                  <a href="#" target="_blank">Xue Liu</a><sup>*</sup></span>
+                              <span class="author-block">
+                                  <a href="#" target="_blank">Chen Ma</a><sup>+</sup></span>
+                          </div>
+                          
+                          <div class="is-size-5 publication-authors">
+                              <span class="author-block">City University of Hong Kong<sup>+</sup>,</span>
+                              <span class="author-block">McGill University & MILA<sup>*</sup>,</span>
+                              <span class="author-block">Gaoling School of Artificial Intelligence, Renmin University of China<sup>‡</sup>,</span> <!-- 替换 # -->
+                              <span class="author-block">Chinese University of Hong Kong<sup>§</sup></span>          <!-- 替换 & -->
+			      <span class="author-block">Salesforce AI Research<sup>¶</sup></span>
+			      <span class="author-block">Macquarie University<sup>‖</sup></span>
+			      <span class="author-block">Stanford University<sup>★</sup></span>
+			      <span class="author-block">University of California, Santa Barbara<sup>☆</sup></span>
+                          </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- Arxiv PDF link -->
+                      <span class="link-block">
+                        <a href="https://arxiv.org/pdf/2503.24235" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+
+                  <!-- Github link -->
+                  <span class="link-block">
+                    <a href="https://github.com/testtimescaling/testtimescaling.github.io" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                <!-- ArXiv abstract Link -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/pdf/2503.24235" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+
+	      <span class="link-block">
+		  <a href="https://github.com/zhangqiyuan-rico/zhangqiyuan-rico.github.io/tree/main/TTS" target="_blank"
+		     class="external-link button is-normal is-rounded is-danger">
+		    <span class="icon">
+		      <i class="fas fa-file-powerpoint"></i>
+		    </span>
+		    <span>PPT</span>
+		  </a>
+		</span>
+            </div>
+		<!-- 在链接区下面插入图片 -->
+	  <div style="margin-top: 3rem;">
+	    <img src="figs/goku_all.png" alt="Goku All" style="max-width: 800px;">
+	  </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Teaser video-->
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video poster="" id="tree" autoplay controls muted loop height="100%">
+        Your video here
+        <source src="videos/banner_video.mp4"
+        type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
+      </h2>
+    </div>
+  </div>
+</section> -->
+<!-- End teaser video -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            As enthusiasm for scaling computation (data and parameters) in the pretraining era gradually diminished, test-time scaling (TTS), also referred to as ``test-time computing'' has emerged as a prominent research focus. Recent studies demonstrate that TTS can further elicit the problem-solving capabilities of large language models (LLMs), enabling significant breakthroughs not only in specialized reasoning tasks, such as mathematics and coding, but also in general tasks like open-ended Q&A. However, despite the explosion of recent efforts in this area, there remains an urgent need for a comprehensive survey offering a systemic understanding. To fill this gap, we propose a unified, multidimensional framework structured along four core dimensions of TTS research: what to scale, how to scale, where to scale, and how well to scale. Building upon this taxonomy, we conduct an extensive review of methods, application scenarios, and assessment aspects, and present an organized decomposition that highlights the unique functional roles of individual techniques within the broader TTS landscape. From this analysis, we distill the major developmental trajectories of TTS to date and offer hands-on guidelines for practical deployment. Furthermore, we identify several open challenges and offer insights into promising future directions, including further scaling, clarifying the functional essence of techniques, generalizing to more tasks, and more attributions.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      
+      <div id="results-carousel"
+     class="carousel results-carousel"
+     style="overflow: hidden;">
+        
+        <!-- 轮播项1 -->
+        <div class="item">
+          <figure class="image-container">
+            <img src="figs/TTS-intro.png" alt="TTS Intro"/>
+            <figcaption class="subtitle is-6">Figure 1: Comparison of Scaling Paradigms in Pre-training and Test-time Phases.</figcaption>
+          </figure>
+        </div>
+        
+        <!-- 轮播项2 -->
+        <div class="item">
+          <figure class="image-container">
+            <img src="figs/TTS-how.png" alt="TTS How"/>
+            <figcaption class="subtitle is-6">Figure 2: A Visual Map and Comparison: From What to Scale to How to Scale.</figcaption>
+          </figure>
+        </div>
+        
+        <!-- 轮播项3 -->
+        <div class="item">
+          <figure class="image-container">
+            <img src="figs/taxonomy.png" alt="TTS Taxonomy"/>
+            <figcaption class="subtitle is-6">Figure 3: Taxonomy of research in Test-time Scaling.</figcaption>
+          </figure>
+        </div>
+
+	<!-- 轮播项4 -->
+        <div class="item">
+          <figure class="image-container">
+            <img src="figs/summary_stimulation.png" alt="TTS stimulation"/>
+            <figcaption class="subtitle is-6">Figure 4: Summary of Certain Stimulation Techniques.</figcaption>
+          </figure>
+        </div>
+
+	<!-- 轮播项4 -->
+        <div class="item">
+          <figure class="image-container">
+            <img src="figs/summary_verification.png" alt="TTS verification"/>
+            <figcaption class="subtitle is-6">Figure 5:  Summary of Certain Verification Techniques.</figcaption>
+          </figure>
+        </div>
+
+	<!-- 轮播项4 -->
+        <div class="item">
+          <figure class="image-container">
+            <img src="figs/summary_aggregation.png" alt="TTS aggregation"/>
+            <figcaption class="subtitle is-6">Figure 6:  Summary of Certain Aggregation Techniques.</figcaption>
+          </figure>
+        </div>
+
+	<!-- 轮播项4 -->
+        <div class="item">
+          <figure class="image-container">
+            <img src="figs/summary_benchmarks.png" alt="TTS benchmarks"/>
+            <figcaption class="subtitle is-6">Figure 7:  Summary of Benchmarks</figcaption>
+          </figure>
+        </div>
+
+	<!-- 轮播项4 -->
+        <div class="item">
+          <figure class="image-container">
+            <img src="figs/trend.png" alt="TTS trend"/>
+            <figcaption class="subtitle is-6">Figure 8: From Emergence to the Next Frontier, the Evolutionary Path of Test-Time Scaling</figcaption>
+          </figure>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<style>
+  /* 轮播容器：宽度+居中 */
+.carousel {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* figure容器：固定高300px + 相对定位 */
+.image-container {
+  position: relative;   /* 关键：让figcaption绝对定位 */
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  margin: 0;            /* 去掉默认figure margin */
+}
+
+/* 图片：完整显示，不裁剪 */
+.image-container img {
+  display: block;       /* 避免多余空白 */
+  width: 100%;
+  height: 100%;
+  object-fit: contain;  /* 保持整图可见 */
+}
+
+/* 标题叠加在图片底部 */
+.image-container figcaption {
+  position: absolute;
+  bottom: 0;             /* 贴底部 */
+  left: 0;               /* 左对齐容器 */
+  width: 100%;           /* 占满容器宽度 */
+  color: #fff;           /* 白色文字 */
+  background-color: rgba(0,0,0,0.5); /* 半透明背景 */
+  text-align: center;
+  padding: 0.5rem 1rem;  /* 让标题有点内边距 */
+  margin: 0;             /* 去掉默认margin-top */
+  box-sizing: border-box;
+}
+</style>
+<!-- End image carousel -->
+
+<section class="section" id="taxonomy">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">🧬 Taxonomy</h2>
+    
+    <!-- 1. What to Scale -->
+    <h3 class="title is-4">1. What to Scale</h3>
+    <p>
+      “What to scale” refers to the specific form of TTS that is expanded or adjusted to enhance an LLM’s performance during inference.
+    </p>
+    <ul style="margin-bottom: 1.5rem;">
+      <li><strong>Parallel Scaling:</strong> improves test-time performance by generating multiple outputs in parallel and then aggregating them into a final answer.</li>
+      <li><strong>Sequential Scaling:</strong> involves explicitly directing later computations based on intermediate steps.</li>
+      <li><strong>Hybrid Scaling:</strong> exploits the complementary benefits of parallel and sequential scaling.</li>
+      <li><strong>Internal Scaling:</strong> elicits a model to autonomously determine how much computation to allocate for reasoning during testing within the model’s internal parameters, instead of external human-guided strategies.</li>
+    </ul>
+
+    <!-- 2. How to Scale -->
+    <h3 class="title is-4">2. How to Scale</h3>
+    <ul style="margin-bottom: 1.5rem;">
+      <li>
+        <strong>Tuning</strong>
+        <ul>
+          <li><em>Supervised Fine-Tuning (SFT):</em> by training on synthetic or distilled long CoT examples, SFT allows a model to imitate extended reasoning patterns.</li>
+          <li><em>Reinforcement Learning (RL):</em> RL can guide a model’s policy to generate longer or more accurate solutions.</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Inference</strong>
+        <ul>
+          <li><em>Stimulation (STI):</em> It basically stimulates the LLM to generate more and longer samples instead of generating individual samples directly.</li>
+          <li><em>Verification (VER):</em> The verification process plays an important role in TTS, and can be adapted to: 
+            <ul style="list-style-type: circle; margin-left: 1.5rem;">
+              <li>Directly select the output sample among various ones (Parallel Scaling).</li>
+              <li>Guide the stimulation process and determine when to stop (Sequential Scaling).</li>
+              <li>Serve as the criteria in the search process.</li>
+              <li>Determine what sample to aggregate and how to aggregate them (e.g., weights).</li>
+            </ul>
+          </li>
+          <li><em>Search (SEA):</em> Search is a time-tested technique for retrieving relevant information from large databases, and it can also systematically explore the potential outputs of LLMs to improve complex reasoning tasks.</li>
+          <li><em>Aggregation (AGG):</em> Aggregation techniques consolidate multiple solutions into a final decision to enhance the reliability and robustness of model predictions at test time.</li>
+        </ul>
+      </li>
+    </ul>
+
+    <!-- 3. Where to Scale -->
+    <h3 class="title is-4">3. Where to Scale</h3>
+    <ul style="margin-bottom: 1.5rem;">
+      <li><strong>Reasoning:</strong> Math, Code, Science, Game &amp; Strategy, Medical, etc.</li>
+      <li><strong>General-Purpose:</strong> Basics, Agents, Knowledge, Open-Ended, Multi-Modal, etc.</li>
+    </ul>
+
+    <!-- 4. How Well to Scale -->
+    <h3 class="title is-4">4. How Well to Scale</h3>
+    <ul style="margin-bottom: 1.5rem;">
+      <li><strong>Performance:</strong> measures correctness and robustness of outputs.</li>
+      <li><strong>Efficiency:</strong> captures the cost-benefit tradeoffs of TTS methods.</li>
+      <li><strong>Controllability:</strong> assesses whether TTS methods adhere to resource or output constraints, such as compute budgets or output lengths.</li>
+      <li><strong>Scalability:</strong> quantifies how well models improve with more test-time compute (e.g., tokens or steps).</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section has-background-light">
+  <div class="container">
+    <!-- 标题 -->
+    <h2 class="title is-3 has-text-centered">🔍 Paper Tables</h2>
+
+    <!-- 可以用Bulma的card或box包裹表格，让它更有层次感 -->
+    <div class="card" style="margin-top: 1.5rem;">
+      <header class="card-header">
+        <p class="card-header-title">Test-time Scaling Paper Summary</p>
+      </header>
+
+      <div class="card-content">
+        <div class="table-container">
+          <table class="table is-striped is-hoverable is-fullwidth">
+            <thead>
+              <tr>
+                <th style="width:300px">Method (PapersTitles)</th>
+                <th>What</th>
+                <th>How →</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th>Where</th>
+                <th>How Well</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+                <td>SFT</td>
+                <td>RL</td>
+                <td>STI</td>
+                <td>SEA</td>
+                <td>VER</td>
+                <td>AGG</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>
+                  <i><b>Scaling llm test-time compute optimally can be more effective than scaling model parameters.</b></i>
+                  <a href="https://arxiv.org/abs/2408.03314" target="_blank">
+                    <img src="https://img.shields.io/badge/arXiv-2408.03314-red" alt="arXiv Badge">
+                  </a>
+                </td>
+                <td>Parallel,<br>Sequential</td>
+                <td>✗</td>
+                <td>✗</td>
+                <td>✗</td>
+                <td>Beam,<br>LookAhead</td>
+                <td>Verifier</td>
+                <td>(Weighted) Best-of-N,<br>Stepwise Aggregation</td>
+                <td>Math</td>
+                <td>Pass@1,<br>FLOPsMatched Evaluation</td>
+              </tr>
+              <tr>
+		<td><i><b>Multi-agent verification: Scaling test-time compute with goal verifiers</b></i><br>., <a href="https://arxiv.org/abs/2502.20379" target="_blank"><img src="https://img.shields.io/badge/arXiv-2502.20379-red" alt="arXiv Badge"></a></td>
+		<td>Parallel</td>
+		<td>✗</td>
+		<td>✗</td>
+		<td>Self-Repetition</td>
+		<td>✗</td>
+		<td>Multiple-Agent<br>Verifiers</td>
+		<td>Best-of-N</td>
+		<td>Math,<br>Code,<br>General</td>
+		<td>BoN-MAV (Cons@k),<br>Pass@1</td>
+		</tr>
+		<tr>
+		<td><i><b>Evolving Deeper LLM Thinking</b></i><br>,  <a href="https://arxiv.org/abs/2501.09891" target="_blank"><img src="https://img.shields.io/badge/arXiv-2501.09891-red" alt="arXiv Badge"></a></td>
+		<td>Sequential</td>
+		<td>✗</td>
+		<td>✗</td>
+		<td>Self-Refine</td>
+		<td>✗</td>
+		<td>Functional</td>
+		<td>✗</td>
+		<td>Open-Ended</td>
+		<td>Success Rate,<br>Token Cost</td>
+		</tr>
+		<tr>
+		<td><i><b>Meta-reasoner: Dynamic guidance for optimized inference-time reasoning in large language models</b></i><br>, <a href="https://arxiv.org/abs/2502.19918" target="_blank"><img src="https://img.shields.io/badge/arXiv-2502.19918-red" alt="arXiv Badge"></a></td>
+		<td>Sequential</td>
+		<td>✗</td>
+		<td>✗</td>
+		<td>CoT +<br>Self-Repetition</td>
+		<td>✗</td>
+		<td>Bandit</td>
+		<td>✗</td>
+		<td>Game,<br>Sci,<br>Math</td>
+		<td>Accuracy,<br>Token Cost</td>
+		</tr>
+		<tr>
+		<td><i><b>START: Self-taught reasoner with tools</b></i><br>, <a href="https://arxiv.org/abs/2503.04625" target="_blank"><img src="https://img.shields.io/badge/arXiv-2503.04625-red" alt="arXiv Badge"></a></td>
+		<td>Parallel,<br>Sequential</td>
+		<td>Rejection Sampling</td>
+		<td>✗</td>
+		<td>Hint-infer</td>
+		<td>✗</td>
+		<td>Tool</td>
+		<td>✗</td>
+		<td>Math,<br>Code</td>
+		<td>Pass@1</td>
+		</tr>
+		<tr>
+		<td><i><b>" Well, Keep Thinking": Enhancing LLM Reasoning with Adaptive Injection Decoding</b></i><br>,  <a href="https://arxiv.org/abs/2503.10167" target="_blank"><img src="https://img.shields.io/badge/arXiv-2503.10167-red" alt="arXiv Badge"></a></td>
+		<td>Sequential</td>
+		<td>✗</td>
+		<td>✗</td>
+		<td>Adaptive Injection<br>Decoding</td>
+		<td>✗</td>
+		<td>✗</td>
+		<td>✗</td>
+		<td>Math,<br>Logical,<br>Commonsense</td>
+		<td>Accuracy</td>
+		</tr>
+		<tr>
+		<td><i><b>Chain of draft: Thinking faster by writing less</b></i><br>, <a href="https://arxiv.org/abs/2502.18600" target="_blank"><img src="https://img.shields.io/badge/arXiv-2502.18600-red" alt="arXiv Badge"></a></td>
+		<td>Sequential</td>
+		<td>✗</td>
+		<td>✗</td>
+		<td>Chain-of-Draft</td>
+		<td>✗</td>
+		<td>✗</td>
+		<td>✗</td>
+		<td>Math,<br>Symbolic,<br>Commonsense</td>
+		<td>Accuracy,<br>Latency,<br>Token Cost</td>
+		</tr>
+		<tr>
+		<td><i><b>rStar-Math: Small LLMs Can Master Math Reasoning with Self-Evolved Deep Thinking</b></i><br>, <a href="https://arxiv.org/abs/2501.04519" target="_blank"><img src="https://img.shields.io/badge/arXiv-2501.04519-red" alt="arXiv Badge"></a></td>
+		<td>Hybrid</td>
+		<td>imitation</td>
+		<td>✗</td>
+		<td>✗</td>
+		<td>MCTS</td>
+		<td>PRM</td>
+		<td>✗</td>
+		<td>Math</td>
+		<td>Pass@1</td>
+		</tr>
+		<tr>
+		<td><i><b>Can 1B LLM Surpass 405B LLM? Rethinking Compute-Optimal Test-Time Scaling</b></i><br>, <a href="https://arxiv.org/abs/2502.06703" target="_blank"><img src="https://img.shields.io/badge/arXiv-2502.06703-red" alt="arXiv Badge"></a></td>
+		<td>Parallel,<br>Hybrid</td>
+		<td>✗</td>
+		<td>✗</td>
+		<td>✗</td>
+		<td>DVTS,<br>Beam Search</td>
+		<td>PRM</td>
+		<td>Best-of-N</td>
+		<td>Math</td>
+		<td>Pass@1,<br>Pass@k,<br>Majority,<br>FLOPS</td>
+		</tr>
+		<tr>
+		<td><i><b>Tree of thoughts: Deliberate problem solving with large language models</b></i><br>, <a href="https://arxiv.org/abs/2305.10601" target="_blank"><img src="https://img.shields.io/badge/arXiv-2305.10601-red" alt="arXiv Badge"></a></td>
+		<td>Hybrid</td>
+		<td>✗</td>
+		<td>✗</td>
+		<td>Propose Prompt,<br>Self-Repetition</td>
+		<td>Tree Search</td>
+		<td>Self-Evaluate</td>
+		<td>✗</td>
+		<td>Game,<br>Open-Ended</td>
+		<td>Success Rate,<br>LLM-as-a-Judge</td>
+		</tr>
+		<tr>
+		<td><i><b>Mindstar: Enhancing math reasoning in pre-trained llms at inference time</b></i><br>, <a href="https://arxiv.org/abs/2405.16265" target="_blank"><img src="https://img.shields.io/badge/arXiv-2405.16265-red" alt="arXiv Badge"></a></td>
+		<td>Hybrid</td>
+		<td>✗</td>
+		<td>✗</td>
+		<td>✗</td>
+		<td>LevinTS</td>
+		<td>PRM</td>
+		<td>✗</td>
+		<td>Math</td>
+		<td>Accuracy,<br>Token Cost</td>
+		</tr>
+		<tr>
+		<td><i><b>Inference Scaling Laws: An Empirical Analysis of Compute-Optimal Inference for LLM Problem-Solving</b></i><br>, <a href="https://arxiv.org/abs/2408.00724" target="_blank"><img src="https://img.shields.io/badge/arXiv-2408.00724-red" alt="arXiv Badge"></a></td>
+		<td>Hybrid</td>
+		<td>✗</td>
+		<td>✗</td>
+		<td>✗</td>
+		<td>Reward Balanced<br>Search</td>
+		<td>RM</td>
+		<td>✗</td>
+		<td>Math</td>
+		<td>Test Error Rate,<br>FLOPs</td>
+		</tr>
+		<tr>
+		<td><i><b>Reasoning-as-Logic-Units: Scaling Test-Time Reasoning in Large Language Models Through Logic Unit Alignment</b></i><br>, <a href="https://arxiv.org/abs/2502.07803" target="_blank"><img src="https://img.shields.io/badge/arXiv-2502.07803-red" alt="arXiv Badge"></a></td>
+		<td>Hybrid</td>
+		<td>✗</td>
+		<td>✗</td>
+		<td>Self-Refine</td>
+		<td>Control Flow Graph</td>
+		<td>Self-Evaluate</td>
+		<td>Prompt Synthesis</td>
+		<td>Math,<br>Code</td>
+		<td>Pass@1</td>
+		</tr>
+		<tr>
+		<td><i><b>PlanGEN: A Multi-Agent Framework for Generating Planning and Reasoning Trajectories for Complex Problem Solving</b></i><br>, <a href="https://arxiv.org/abs/2502.16111" target="_blank"><img src="https://img.shields.io/badge/arXiv-2502.16111-red" alt="arXiv Badge"></a></td>
+		<td>Parallel,<br>Hybrid</td>
+		<td>✗</td>
+		<td>✗</td>
+		<td>MoA</td>
+		<td>✗</td>
+		<td>Verification Agent</td>
+		<td>Selection Agent</td>
+		<td>Math,<br>General,<br>Finance</td>
+		<td>Accuracy,<br>F1 Score</td>
+		</tr>
+		<tr>
+		<td><i><b>A Probabilistic Inference Approach to Inference-Time Scaling of LLMs using Particle-Based Monte Carlo Methods</b></i><br>, <a href="https://arxiv.org/abs/2502.01618" target="_blank"><img src="https://img.shields.io/badge/arXiv-2502.01618-red" alt="arXiv Badge"></a></td>
+		<td>Hybrid</td>
+		<td>✗</td>
+		<td>✗</td>
+		<td>✗</td>
+		<td>Particle-based<br>Monte Carlo</td>
+		<td>PRM + SSM</td>
+		<td>Particle Filtering</td>
+		<td>Math</td>
+		<td>Pass@1,<br>Budget vs. Accuracy</td>
+		</tr>
+		<tr>
+		<td><i><b>Archon: An Architecture Search Framework for Inference-Time Techniques</b></i><br>, <a href="https://arxiv.org/abs/2409.15254" target="_blank"><img src="https://img.shields.io/badge/arXiv-2409.15254-red" alt="arXiv Badge"></a></td>
+		<td>Hybrid</td>
+		<td>✗</td>
+		<td>✗</td>
+		<td>MoA,<br>Self-Repetition</td>
+		<td>✗</td>
+		<td>Verification Agent,<br>Unit Testing (Ensemble)</td>
+		<td>Fusion</td>
+		<td>Math,<br>Code,<br>Open-Ended</td>
+		<td>Pass@1,<br>Win Rate</td>
+		</tr>
+		<tr>
+		<td><i><b>Wider or deeper? scaling llm inference-time compute with adaptive branching tree search</b></i><br>, <a href="https://arxiv.org/abs/2503.04412" target="_blank"><img src="https://img.shields.io/badge/arXiv-2503.04412-red" alt="arXiv Badge"></a></td>
+		<td>Hybrid</td>
+		<td>✗</td>
+		<td>✗</td>
+		<td>Mixture-of-Model</td>
+		<td>AB-MCTS-(M,A)</td>
+		<td>✗</td>
+		<td>✗</td>
+		<td>Code</td>
+		<td>Pass@1,<br>RMSLE,<br>ROC-AUC</td>
+		</tr>
+		<tr>
+		<td><i><b>Thinking llms: General instruction following with thought generation</b></i><br>, <a href="https://arxiv.org/abs/2410.10630" target="_blank"><img src="https://img.shields.io/badge/arXiv-2410.10630-red" alt="arXiv Badge"></a></td>
+		<td>Internal,<br>Parallel</td>
+		<td>✗</td>
+		<td>DPO</td>
+		<td>Think</td>
+		<td>✗</td>
+		<td>Judge Models</td>
+		<td>✗</td>
+		<td>Open-Ended</td>
+		<td>Win Rate</td>
+		</tr>
+		<tr>
+		<td><i><b>Self-Evolved Preference Optimization for Enhancing Mathematical Reasoning in Small Language Models</b></i><br>, <a href="https://arxiv.org/abs/2503.04813" target="_blank"><img src="https://img.shields.io/badge/arXiv-2503.04813-red" alt="arXiv Badge"></a></td>
+		<td>Internal,<br>Hybrid</td>
+		<td>✗</td>
+		<td>DPO</td>
+		<td>Diversity Generation</td>
+		<td>MCTS</td>
+		<td>Self-Reflect</td>
+		<td>✗</td>
+		<td>Math</td>
+		<td>Pass@1</td>
+		</tr>
+		<tr>
+		<td><i><b>MA-LoT: Multi-Agent Lean-based Long Chain-of-Thought Reasoning enhances Formal Theorem Proving</b></i><br>, <a href="https://arxiv.org/abs/2503.03205" target="_blank"><img src="https://img.shields.io/badge/arXiv-2503.03205-red" alt="arXiv Badge"></a></td>
+		<td>Internal,<br>Sequential</td>
+		<td>imitation</td>
+		<td>✗</td>
+		<td>MoA</td>
+		<td>✗</td>
+		<td>Tool</td>
+		<td>✗</td>
+		<td>Math</td>
+		<td>Pass@k</td>
+		</tr>
+		<tr>
+		<td><i><b>Offline Reinforcement Learning for LLM Multi-Step Reasoning</b></i><br>, <a href="https://arxiv.org/abs/2412.16145" target="_blank"><img src="https://img.shields.io/badge/arXiv-2412.16145-red" alt="arXiv Badge"></a></td>
+		<td>Internal,<br>Sequential</td>
+		<td>✗</td>
+		<td>OREO</td>
+		<td>✗</td>
+		<td>Beam Search</td>
+		<td>Value Function</td>
+		<td>✗</td>
+		<td>Math,<br>Agent</td>
+		<td>Pass@1,<br>Success Rate</td>
+		</tr>
+		<tr>
+		<td><i><b>DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning</b></i><br>, <a href="https://arxiv.org/abs/2501.12948" target="_blank"><img src="https://img.shields.io/badge/arXiv-2501.12948-red" alt="arXiv Badge"></a></td>
+		<td>Internal</td>
+		<td>warmup,<br>GRPO,<br>Rule-Based</td>
+		<td>✗</td>
+		<td>✗</td>
+		<td>✗</td>
+		<td>✗</td>
+		<td>Math,<br>Code,<br>Sci</td>
+		<td>Pass@1,<br>cons@64,<br>Percentile,<br>Elo Rating,<br>Win Rate</td>
+		<td></td>
+		</tr>
+		<tr>
+		<td><i><b>s1: Simple test-time scaling</b></i><br>, <a href="https://arxiv.org/abs/2501.19393" target="_blank"><img src="https://img.shields.io/badge/arXiv-2501.19393-red" alt="arXiv Badge"></a></td>
+		<td>Internal</td>
+		<td>distillation</td>
+		<td>✗</td>
+		<td>Budget Forcing</td>
+		<td>✗</td>
+		<td>✗</td>
+		<td>✗</td>
+		<td>Math,<br>Sci</td>
+		<td>Pass@1,<br>Control,<br>Scaling</td>
+		</tr>
+		<tr>
+		<td><i><b>O1 Replication Journey: A Strategic Progress Report – Part 1</b></i><br>, <a href="https://arxiv.org/abs/2410.18982" target="_blank"><img src="https://img.shields.io/badge/arXiv-2410.18982-red" alt="arXiv Badge"></a></td>
+		<td>Internal</td>
+		<td>imitation</td>
+		<td>✗</td>
+		<td>✗</td>
+		<td>Journey Learning</td>
+		<td>PRM,<br>Critique</td>
+		<td>Multi-Agents</td>
+		<td>Math</td>
+		<td>Accuracy</td>
+		</tr>
+		<tr>
+		<td><i><b>From drafts to answers: Unlocking llm potential via aggregation fine-tuning</b></i><br>, <a href="https://arxiv.org/abs/2501.11877" target="_blank"><img src="https://img.shields.io/badge/arXiv-2501.11877-red" alt="arXiv Badge"></a></td>
+		<td>Internal,<br>Parallel</td>
+		<td>imitation</td>
+		<td>✗</td>
+		<td>✗</td>
+		<td>✗</td>
+		<td>Fusion</td>
+		<td>✗</td>
+		<td>Math,<br>Open-Ended</td>
+		<td>Win Rate</td>
+		</tr>
+		<tr>
+		<td><i><b>Towards System 2 Reasoning in LLMs: Learning How to Think With Meta Chain-of-Though</b></i><br>,  <a href="https://arxiv.org/abs/2501.04682" target="_blank"><img src="https://img.shields.io/badge/arXiv-2501.04682-red" alt="arXiv Badge"></a></td>
+		<td>Internal,<br>Hybrid</td>
+		<td>imitation,<br>meta-RL</td>
+		<td>Think</td>
+		<td>MCTS,<br>A*</td>
+		<td>PRM</td>
+		<td>✗</td>
+		<td>Math,<br>Open-Ended</td>
+		<td>Win Rate</td>
+		<td></td>
+		</tr>
+		<tr>
+		<td><i><b>ReasonFlux: Hierarchical LLM Reasoning via Scaling Thought Templates</b></i><br>, <a href="https://arxiv.org/abs/2502.06772" target="_blank"><img src="https://img.shields.io/badge/arXiv-2502.06772-red" alt="arXiv Badge"></a></td>
+		<td>Internal,<br>Sequential</td>
+		<td>✗</td>
+		<td>PPO,<br>Trajectory</td>
+		<td>Thought Template Retrieve</td>
+		<td>✗</td>
+		<td>✗</td>
+		<td>Math</td>
+		<td>Pass@1</td>
+		<td></td>
+		</tr>
+		<tr>
+		<td><i><b>L1: Controlling how long a reasoning model thinks with reinforcement learning</b></i><br>, <a href="https://arxiv.org/abs/2503.04697" target="_blank"><img src="https://img.shields.io/badge/arXiv-2503.04697-red" alt="arXiv Badge"></a></td>
+		<td>Internal</td>
+		<td>✗</td>
+		<td>GRPO,<br>Length-Penalty</td>
+		<td>✗</td>
+		<td>✗</td>
+		<td>✗</td>
+		<td>✗</td>
+		<td>Math</td>
+		<td>Pass@1,<br>Length Error</td>
+		</tr>
+
+              <tr>
+                <td><i><b>Marco-o1: Towards Open Reasoning Models for Open-Ended Solutions</b></i><br>
+                  <a href="https://arxiv.org/abs/2411.14405" target="_blank">
+                    <img src="https://img.shields.io/badge/arXiv-2411.14405-red" alt="arXiv Badge">
+                  </a>
+                </td>
+                <td>Internal,<br>Hybrid</td>
+                <td>distillation,<br>imitation</td>
+                <td>✗</td>
+                <td>Reflection Prompt</td>
+                <td>MCTS</td>
+                <td>Self-Critic</td>
+                <td>✗</td>
+                <td>Math</td>
+                <td>Pass@1,<br>Pass@k</td>
+              </tr>
+            </tbody>
+          </table>
+        </div> <!-- end .table-container -->
+      </div> <!-- end .card-content -->
+    </div> <!-- end .card -->
+  </div> <!-- end .container -->
+</section>
+<!-- Youtube video -->
+<!-- <section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container"> -->
+      <!-- Paper video. -->
+      <!-- <h2 class="title is-3">Video Presentation</h2>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          
+          <div class="publication-video"> -->
+            <!-- Youtube embed code here -->
+            <!-- <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+<!-- End youtube video -->
+
+
+<!-- Video carousel -->
+<!-- <section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Another Carousel</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%"> -->
+            <!-- Your video file here -->
+            <!-- <source src="static/videos/carousel1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop height="100%"> -->
+            <!-- Your video file here -->
+            <!-- <source src="static/videos/carousel2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">\ -->
+            <!-- Your video file here -->
+            <!-- <source src="static/videos/carousel3.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+<!-- End video carousel -->
+
+
+  <!-- ===================== HANDS‑ON GUIDELINES (GitHub Issues) ===================== -->
+  <section id="guidelines" class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Open Hands‑on Guidelines / 开放手册</h2>
+      <p class="content has-text-centered" style="margin-bottom: 1.5rem;">
+      We understand that an individual's strength is limited. I hope our survey provides an open
+      and practical platform where everyone can share their experiences in TTS practice within
+      the community we are building. These experiences are invaluable and will benefit everyone.
+      If the guidelines you provide are valuable, we will include them in the PDF version of the paper.
+      </p>
+      <div class="has-text-centered">
+        <a class="button is-primary is-rounded"
+	   href="https://github.com/testtimescaling/testtimescaling.github.io/issues/new?labels=guideline"
+	   target="_blank">
+	  <span class="icon">
+	    <i class="fab fa-github"></i>
+	  </span>
+	  <span>Submit your Guidelines</span>
+	</a>
+      </div>
+      <!-- 新增：Issues 列表显示区 -->
+      <div id="issues-list" class="content has-text-left" style="margin-top: 1.5rem;">
+        <!-- 这里将通过JS填充列表内容 -->
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- ===================== COMMENTS (giscus) ===================== -->
+  <section id="comments" class="section hero is-light">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Comments &amp; Discussion</h2>
+      <div id="giscus_container"></div>
+    </div>
+  </section>
+
+  <script src="https://giscus.app/client.js"
+        data-repo="testtimescaling/testtimescaling.github.io"
+        data-repo-id="R_kgDOOVw6fw"
+        data-category="Q&A"
+        data-category-id="DIC_kwDOOVw6f84CpnwE"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+<!-- SELECTED TALKS -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">Talks</h2>
+      <iframe width="450" height="235" src="https://player.bilibili.com/player.html?bvid=BV18QVbz7Eq4&high_quality=1&autoplay=0&danmaku=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+      <iframe width="450" height="235" src="https://www.youtube.com/embed/iE6_fC2mjlw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+    </div>
+  </section>
+  <!-- ===================== BIBTEX ===================== -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@misc{zhang2025whathowwherewell,
+      title={What, How, Where, and How Well? A Survey on Test-Time Scaling in Large Language Models}, 
+      author={Qiyuan Zhang and Fuyuan Lyu and Zexu Sun and Lei Wang and Weixu Zhang and Zhihan Guo and Yufei Wang and Niklas Muennighoff and Irwin King and Xue Liu and Chen Ma},
+      year={2025},
+      eprint={2503.24235},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2503.24235}, 
+}</code></pre>
+    </div>
+  </section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+
+<!-- 如果不需要defer，可以改为普通<script> -->
+<script defer src=".js/fontawesome.all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js"></script>
+<script src=".js/bulma-slider.min.js"></script>
+<script src=".js/index.js"></script>
+
+<!-- 关键：初始化Bulma Carousel，让轮播图动起来 -->
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  bulmaCarousel.attach('#results-carousel', {
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    loop: true,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    infinite: true,
+  });
+});
+</script>
+<script>
+  async function loadIssues() {
+    // 1) 替换为你自己的用户名和仓库名
+    const owner = 'testtimescaling';  
+    const repo = 'testtimescaling.github.io';  
+    const label = 'guideline';
+
+    // 2) GitHub API请求URL，可根据需要添加 state=open / per_page=10 等
+    const url = `https://api.github.com/repos/${owner}/${repo}/issues?labels=${label}&state=open&per_page=10`;
+
+    try {
+      // 3) 发起请求，获取Issues列表
+      const res = await fetch(url);
+      const issues = await res.json();
+
+      // 4) 找到HTML中专门放置Issues列表的容器
+      const wrap = document.getElementById('issues-list');
+      if (!Array.isArray(issues) || issues.length === 0) {
+        // 如果没有任何Issue，就自行决定要不要显示空提示
+        // wrap.innerHTML = '<p>暂无讨论</p>';
+        return;
+      }
+
+      // 5) 生成一个ul，逐个显示Issue标题和链接
+      const ul = document.createElement('ul');
+      issues.forEach(issue => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <a href="${issue.html_url}" target="_blank">${issue.title}</a>
+          <span class="has-text-grey-light">#${issue.number} · by ${issue.user.login}</span>
+        `;
+        ul.appendChild(li);
+      });
+      // 6) 把ul插入wrap
+      wrap.appendChild(ul);
+
+    } catch (err) {
+      console.error('Load issues failed:', err);
+      // 这里可以放一个提示或忽略
+    }
+  }
+
+  // 等页面加载完成后再调用
+  document.addEventListener('DOMContentLoaded', loadIssues);
+</script>
+
+</body>
+</html>
