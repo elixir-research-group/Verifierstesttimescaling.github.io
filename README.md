@@ -57,7 +57,6 @@ Test-time scaling (TTS) has emerged as a new frontier for scaling the performanc
 1. Putting the Value Back in RL: Better Test-Time Scaling by
 Unifying LLM Reasoners With Verifiers - <a href="https://arxiv.org/pdf/2505.04842" target="_blank"><img src="https://img.shields.io/badge/arXiv-2412.16145-red" alt="arXiv Badge"></a>
 
-2. Generative Reward Modeling via Synthetic Criteria Preference Learning  <a href="https://aclanthology.org/2025.acl-long.1297.pdf" target="_blank"><img src="https://img.shields.io/badge/ACL-2020-green" alt="ACL Badge"
-> </a>
+2. Generative Reward Modeling via Synthetic Criteria Preference Learning  <a href="https://aclanthology.org/2025.acl-long.1297.pdf" target="_blank"><img src="https://img.shields.io/badge/ACL-2020-green"> </a>
 
 </footer>
