@@ -24,8 +24,8 @@ Our repository, **Survey of Verifier Design Mechanisms for Test Time Scaling of 
 
 
 <div align="center">
-  <img src="figs/TTS-how.png" width="900"/>
-  <p><b>Figure 1:</b> A Visual Map and Comparison: From <i>What to Scale</i> to <i>How to Scale.</i>.</p>
+  <img src="figs/Verifier.pdf" width="900"/>
+  <p><b>Figure 1:</b> A Visual Map and Comparison.</p>
 </div>
 
 ## 📢 News and Updates
