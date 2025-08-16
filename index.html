@@ -247,19 +247,24 @@
 
 <section class="section" id="taxonomy">
   <div class="container is-max-desktop">
-    <h2 class="title is-3">🧬 Taxonomy</h2>
+    <h2 class="title is-3">🧬 Test-Time Scaling and Verifier Design</h2>
     
     <!-- 1. What to Scale -->
-    <h3 class="title is-4">1. What to Scale</h3>
+    <h3 class="title is-4">1. Scaling Paradigms at Inference</h3>
     <p>
-      “What to scale” refers to the specific form of TTS that is expanded or adjusted to enhance an LLM’s performance during inference.
-    </p>
-    <ul style="margin-bottom: 1.5rem;">
-      <li><strong>Parallel Scaling:</strong> improves test-time performance by generating multiple outputs in parallel and then aggregating them into a final answer.</li>
-      <li><strong>Sequential Scaling:</strong> involves explicitly directing later computations based on intermediate steps.</li>
-      <li><strong>Hybrid Scaling:</strong> exploits the complementary benefits of parallel and sequential scaling.</li>
-      <li><strong>Internal Scaling:</strong> elicits a model to autonomously determine how much computation to allocate for reasoning during testing within the model’s internal parameters, instead of external human-guided strategies.</li>
-    </ul>
+      In <strong>parallel scaling</strong>, the model generates mul-
+      tiple independent outputs simultaneously, often
+      by varying sampling temperature or prompt exem-
+      plars to induce diversity (Levy et al., 2023; Brown
+      et al., 2024). These outputs form a candidate set
+      $S = {s1, . . . , sk}$, from which a selection mecha-
+      nism V identifies the final answer $s^∗ = V(S)$.    </p>
+    <p><strong>Sequential scaling</strong>, in contrast, decomposes a
+      problem into intermediate steps or sub-questions.
+      Each step builds on the previous one, produc-
+      ing a sequence ${sq_1, . . . , sq_T }$ where each sqt =
+      $LLM(sq_{t−1}, ct)$ depends on the prior reasoning
+      step and contextual information ct </p>
 
     <!-- 2. How to Scale -->
     <h3 class="title is-4">2. How to Scale</h3>
@@ -319,7 +324,7 @@
       </header>
 
       <div class="card-content">
-        <div class="table-container">
+        <!-- <div class="table-container">
           <table class="table is-striped is-hoverable is-fullwidth">
             <thead>
               <tr>
@@ -707,7 +712,7 @@
                 <td>Pass@1,<br>Pass@k</td>
               </tr>
             </tbody>
-          </table>
+          </table> -->
         </div> <!-- end .table-container -->
       </div> <!-- end .card-content -->
     </div> <!-- end .card -->
@@ -773,10 +778,7 @@
     <div class="container is-max-desktop">
       <h2 class="title is-3 has-text-centered">Open Issues</h2>
       <p class="content has-text-centered" style="margin-bottom: 1.5rem;">
-      We understand that an individual's strength is limited. I hope our survey provides an open
-      and practical platform where everyone can share their experiences in TTS practice within
-      the community we are building. These experiences are invaluable and will benefit everyone.
-      If the guidelines you provide are valuable, we will include them in the PDF version of the paper.
+Please raise Issues in the repo to add new papers or insights.
       </p>
       <div class="has-text-centered">
         <a class="button is-primary is-rounded"
@@ -882,15 +884,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const res = await fetch(url);
       const issues = await res.json();
 
-      // 4) 找到HTML中专门放置Issues列表的容器
       const wrap = document.getElementById('issues-list');
       if (!Array.isArray(issues) || issues.length === 0) {
-        // 如果没有任何Issue，就自行决定要不要显示空提示
-        // wrap.innerHTML = '<p>暂无讨论</p>';
         return;
       }
 
-      // 5) 生成一个ul，逐个显示Issue标题和链接
       const ul = document.createElement('ul');
       issues.forEach(issue => {
         const li = document.createElement('li');
@@ -900,16 +898,13 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
         ul.appendChild(li);
       });
-      // 6) 把ul插入wrap
       wrap.appendChild(ul);
 
     } catch (err) {
       console.error('Load issues failed:', err);
-      // 这里可以放一个提示或忽略
     }
   }
 
-  // 等页面加载完成后再调用
   document.addEventListener('DOMContentLoaded', loadIssues);
 </script>
 
